@@ -101,6 +101,10 @@ enum class Piece : uint8_t {
 INCREMENT_OP(Piece)
 BITWISE_OP(Piece)
 
+constexpr Piece colorless_piece(Piece piece) {
+    return piece & (Piece)0b1110;
+}
+
 constexpr void next_colorless_piece(Piece &piece) {
     switch (piece) {
         case Piece::PAWN: piece = Piece::KNIGHT; break;
@@ -201,8 +205,8 @@ public:
 
     size_t size() const;
     const Move &at(size_t i) const;
-    Array::const_iterator begin();
-    Array::const_iterator end();
+    Array::iterator begin();
+    Array::iterator end();
 
     Move &emplace();
 

@@ -29,12 +29,12 @@ const Move &MoveContainer::at(size_t i) const {
     return _moves.at(i);
 }
 
-MoveContainer::Array::const_iterator MoveContainer::begin() {
-    return _moves.cbegin();
+MoveContainer::Array::iterator MoveContainer::begin() {
+    return _moves.begin();
 }
 
-MoveContainer::Array::const_iterator MoveContainer::end() {
-    return _moves.cbegin() + _count;
+MoveContainer::Array::iterator MoveContainer::end() {
+    return _moves.begin() + _count;
 }
 
 Move &MoveContainer::emplace() {
